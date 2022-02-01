@@ -1,17 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 
-function Sushi({ sushi }) {
-  const { id, name, img_url, price } = sushi
-
-  const [isThereSushi, setIsThereSushi] = useState(true)
+function Sushi({ sushi, onEatSushi }) {
+  const { id, name, img_url, price, eaten } = sushi
 
   function handlePlateClick() {
-    setIsThereSushi(isThereSushi => !isThereSushi)
+    !eaten ? onEatSushi(sushi) : alert("You already ate the sushi!")
   }
   return (
     <div className="sushi">
       <div className="plate" onClick={handlePlateClick}>
-        {!isThereSushi ? null : <img src={img_url} alt={name} width="100%" />}
+        {eaten ? null : <img src={img_url} alt={name} width="100%" />}
       </div>
       <h4 className="sushi-details">
         {name} - ${price}
