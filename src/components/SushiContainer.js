@@ -1,8 +1,9 @@
 import React, { useState } from "react"
+import MoneyForm from "./MoneyForm"
 import MoreButton from "./MoreButton"
 import Sushi from "./Sushi"
 
-function SushiContainer({ sushis, onEatSushi }) {
+function SushiContainer({ sushis, onEatSushi, onAddMoney }) {
   const [startingIndex, setStartingIndex] = useState(0)
 
   const sushiToDisplay = sushis
@@ -19,6 +20,7 @@ function SushiContainer({ sushis, onEatSushi }) {
     <div className="belt">
       {sushiToDisplay}
       <MoreButton moreSushiClick={handleMoreSushiClick} />
+      <MoneyForm onAddMoney={onAddMoney}/>
     </div>
   )
 }
