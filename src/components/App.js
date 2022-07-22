@@ -36,13 +36,17 @@ function App() {
   }
 
   function handleAddMoney(money) {
-    setWallet(wallet => wallet + parseInt(money))
+    setWallet((wallet) => wallet + parseInt(money))
   }
 
   const eatenSushis = sushis.filter((sushi) => sushi.isEaten)
   return (
     <div className="app">
-      <SushiContainer sushis={sushis} onEatSushi={handleEatSushi} onAddMoney={handleAddMoney} />
+      <SushiContainer
+        sushis={sushis}
+        onEatSushi={handleEatSushi}
+        onAddMoney={handleAddMoney}
+      />
       <Table plates={eatenSushis} wallet={wallet} />
     </div>
   )
